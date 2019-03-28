@@ -55,15 +55,31 @@ $ composer install
 
   ```$ php artisan db:seed```
 
-
 - Install node modules
 
   ```$ npm install```
+
+- Create Sqlite Database
+
+  ```$ touch database/test.sqlite```
+
+- Copy the `.env.testing.example` file to `.env.testing`
+
+  ```$ cp .env.testing.example .env.testing```
+
+- Migrate and seed the test database
+
+  ```$ php artisan migrate --seed --env=testing```
+
 
 
 ### Run the application
 
   ```$ php artisan serve```
+
+### Run php unit test
+
+  ```$ ./vendor/bin/phpunit```
 
 
 ## Built With

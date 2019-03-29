@@ -35,13 +35,7 @@ return [
 
         'sqlite' => [
             'driver' => 'sqlite',
-            'database' => storage_path().'/database.sqlite',
-            'prefix' => '',
-        ],
-
-        'sqlite_testing' => [
-            'driver' => 'sqlite',
-            'database' => storage_path().'/testing.sqlite',
+            'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
 
@@ -67,6 +61,19 @@ return [
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => 'public',
+            'sslmode' => 'prefer',
+        ],
+
+        'pgsql_test' => [
+            'driver' => 'pgsql',
+            'host' => env('DB_TEST_HOST', '127.0.0.1'),
+            'port' => env('DB_TEST_PORT', '5432'),
+            'database' => env('DB_TEST_DATABASE', 'forge'),
+            'username' => env('DB_TEST_USERNAME', 'forge'),
+            'password' => env('DB_TEST_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',

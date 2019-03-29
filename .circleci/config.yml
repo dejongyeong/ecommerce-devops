@@ -14,17 +14,17 @@ jobs:
           fingerprints:
             - "65:91:af:42:b1:06:61:7b:66:76:d5:c8:1f:3f:52:6d"
       - run:
-        name: Install PostgreSQL client tools
-        command: |
-          sudo apt-get update && sudo apt-get install postgresql-client
+          name: Install PostgreSQL client tools
+          command: |
+            sudo apt-get update && sudo apt-get install postgresql-client
       - run:
-        name: Install and Enable pdo_pgsql php extension
-        command: |
-          sudo apt-get update && sudo apt-get install libpq-dev
-          sudo docker-php-ext-install pdo_pgsql && sudo docker-php-ext-enable pdo_pgsql
+          name: Install and Enable pdo_pgsql php extension
+          command: |
+            sudo apt-get update && sudo apt-get install libpq-dev
+            sudo docker-php-ext-install pdo_pgsql && sudo docker-php-ext-enable pdo_pgsql
       - run:
-        name: Update composer
-        command: sudo composer self-update
+          name: Update composer
+          command: sudo composer self-update
       - restore_cache:
           keys:
             - composer-v1-{{ checksum "composer.lock" }}

@@ -92,3 +92,7 @@ $ composer install
 
 ## DevOps Tools
 * Microsft Visual Studio Code
+* PHPUnit
+* GitHub
+* SonarCloud Code Quality Analyzer
+* Slack Notifications Integration

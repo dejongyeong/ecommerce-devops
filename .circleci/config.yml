@@ -15,8 +15,7 @@ jobs:
             - "65:91:af:42:b1:06:61:7b:66:76:d5:c8:1f:3f:52:6d"
       - run:
           name: Install PostgreSQL client tools
-          command: |
-            sudo apt update && sudo apt install postgresql-client
+          command: sudo apt update && sudo apt install postgresql-client
       - run:
           name: Install and Enable pdo_pgsql php extension
           command: |

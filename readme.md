@@ -89,3 +89,6 @@ $ composer install
 ## Acknowledgments
 * [Laravel](https://laravel.com) - The excellent documentation explaining how to get started with Laravel and Laravel Passport made it easy to provide a step by step guide for beginners to follow the application
 * [Vue](https://vuejs.org) - Concise documentation 
+
+## DevOps Tools
+* Microsft Visual Studio Code

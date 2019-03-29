@@ -13,7 +13,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "65:91:af:42:b1:06:61:7b:66:76:d5:c8:1f:3f:52:6d"
-      - run: sudo apt update && sudo apt install postgresql-client
+      - run: sudo apt update && sudo apt install postgresql-client-9.6
       - run: sudo apt update && sudo apt install libpq-dev
       - run: sudo docker-php-ext-install pdo_pgsql && sudo docker-php-ext-enable pdo_pgsql
       - run:
@@ -21,13 +21,13 @@ jobs:
           command: sudo composer self-update
       - restore_cache:
           keys:
-            - composer-v1-{{ checksum "composer.lock" }}
-            - composer-v1-
+            - composer-v2-{{ checksum "composer.lock" }}
+            - composer-v2-
       - run:
           name: Install php dependencies
           command: composer install -n --prefer-dist
       - save_cache:
-          key: composer-v1-{{ checksum "composer.lock" }}
+          key: composer-v2-{{ checksum "composer.lock" }}
           paths:
             - vendor
       - run:

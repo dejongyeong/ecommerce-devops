@@ -31,7 +31,7 @@ jobs: # a collection of steps
           paths:
             - node_modules
       - run: touch storage/testing.sqlite
-      - run: php artisan migrate:refresh --seed -env=testing --database=sqlite_testing --force
+      - run: php artisan migrate:refresh --seed --env=testing --database=sqlite_testing --force
       - run: ./vendor/bin/phpunit
 
       # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples   

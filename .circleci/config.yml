@@ -1,40 +1,37 @@
-version: 2
+version: 2 # use CircleCI 2.0
 
-jobs:
-  build:
-    working_directory: ~/laravel
-    docker:
-      - image: notnoopci/php:7.2-apache-node
-      - image: circleci/mysql:5.7
-        environment:
-          - MYSQL_USER=root
-          - MYSQL_PASSWORD=
-          - MYSQL_ALLOW_EMPTY_PASSWORD=true
-          - MYSQL_DATABASE=circle_test
-    steps:
-      - run:
-          name: Install PHP extensions
-          command: sudo docker-php-ext-install pdo_mysql
-      - run:
-          name: Install Composer
-          command: 'curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer'
-      - run:
-          name: Display versions
-          command: |
-            php -v
-            composer --version
-      - checkout
-      - restore_cache:
+jobs: # a collection of steps
+  build: # runs not using Workflows must have a `build` job as entry point
+    docker: # run the steps with Docker 
+      - image: circleci/php:7.2-node-browsers # ...with this image as the primary container; this is where all `steps` will run
+    working_directory: ~/laravel # directory where steps will run
+    steps: # a set of executable commands
+      - checkout # special step to check out source code to working directory
+      - run: sudo apt install -y libsqlite3-dev zlib1g-dev
+      - run: sudo docker-php-ext-install zip
+      - run: sudo composer self-update
+      - restore_cache: # special step to restore the dependency cache if `composer.lock` does not change
           keys:
-            - composer-v1-{{ checksum "composer.json" }}
-            - composer-v1-
-      - run:
-          name: Install project dependencies
-          command: composer install -n --prefer-dist
-      - save_cache:
-          key: composer-v1-{{ checksum "composer.json" }}
+            - composer-v2-{{ checksum "composer.lock" }}
+            # fallback to using the latest cache if no exact match is found (See https://circleci.com/docs/2.0/caching/)
+            - composer-v2-
+      - run: composer install -n --prefer-dist
+      - save_cache: # special step to save the dependency cache with the `composer.lock` cache key template
+          key: composer-v2-{{ checksum "composer.lock" }}
           paths:
             - vendor
-      - run:
-          name: Run PhpUnit
-          command: ./vendor/bin/phpunit
+      - restore_cache: # special step to restore the dependency cache if `package.json` does not change
+          keys:
+            - node-v2-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found (See https://circleci.com/docs/2.0/caching/)
+            - node-v2-
+      - run: npm install
+      - save_cache: # special step to save the dependency cache with the `package.json` cache key template
+          key: node-v2-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run: touch storage/testing.sqlite
+      - run: php artisan migrate:refresh --seed -env=testing --database=sqlite_testing --force
+      - run: ./vendor/bin/phpunit
+
+      # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples   

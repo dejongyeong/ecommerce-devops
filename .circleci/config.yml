@@ -1,11 +1,6 @@
 version: 2
 
 jobs:
-  deploy-job:
-    steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "65:91:af:42:b1:06:61:7b:66:76:d5:c8:1f:3f:52:6d"
   build:
     docker:
       - image: library/php:7.2-rc
@@ -15,6 +10,9 @@ jobs:
     working_directory: ~/repo
     steps: 
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "65:91:af:42:b1:06:61:7b:66:76:d5:c8:1f:3f:52:6d"
       - run:
         name: Install PostgreSQL client tools
         command: |

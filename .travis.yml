@@ -5,8 +5,6 @@
 # References: https://medium.com/@felipeluizsoares/automatically-deploy-with-travis-ci-and-heroku-ddba1361647f
 # References: https://mattstauffer.com/blog/laravel-on-heroku-using-a-postgresql-database/
 
-dist: trusty
-
 language: php
 
 php:
@@ -17,10 +15,10 @@ services:
 
 before_script:
   - phpenv config-rm xdebug.ini
+  - psql -c 'create database ecommerce-testing;' -U postgres
   - composer self-update
   - composer install --no-interaction
   - npm install
-  - psql -c 'create database ecommerce-testing;' -U postgres
 
 script:
   - php artisan key:generate

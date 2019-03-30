@@ -6,8 +6,6 @@ php:
   - 7.2.10
 
 before_script:
-  - touch database/database.sqlite
-  - touch database/test.sqlite
   - cp .env.travis .env
   - composer self-update
   - composer install --no-interaction

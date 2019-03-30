@@ -13,9 +13,11 @@ php:
 services:
   - postgresql
 
+addons:
+  - postgresql: "9.6"
+
 before_script:
   - phpenv config-rm xdebug.ini
-  - psql -c 'create database ecommerce-testing;' -U postgres
   - composer self-update
   - composer install --no-interaction
   - npm install

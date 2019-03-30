@@ -18,6 +18,7 @@ addons:
 
 before_script:
   - phpenv config-rm xdebug.ini
+  - cp .env.travis.example .env
   - composer self-update
   - composer install --no-interaction
   - npm install

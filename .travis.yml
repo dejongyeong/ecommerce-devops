@@ -1,31 +1,25 @@
 dist: trusty
-
 language: php
-
 php:
-  - 7.2.10
-
+- 7.2.10
 before_script:
-  - cp .env.travis .env
-  - composer self-update
-  - composer install --no-interaction
-  - npm install
-  - php artisan key:generate
-  - php artisan passport:install
-  - php artisan migrate
-
+- cp .env.travis .env
+- composer self-update
+- composer install --no-interaction
+- npm install
+- php artisan key:generate
+- php artisan passport:install
+- php artisan migrate
 script:
-  - vendor/bin/phpunit
-
+- vendor/bin/phpunit
 cache:
   directories:
   - "$HOME/.composer/cache/files"
-
 matrix:
   fast_finish: true
-
 notifications:
   slack:
-    secure: c1kEkPJoYtlEiUBJfy0K/R4BaU/I1/2QeWAkBJLgkqPCZX6WkatcghnHNIQIb1Jou1Lvj0fcLUOQi2d5wq7psdOpcXf/Ic9UiZ71pPHP7YzGq/5z/8MU9ks7lOMyuqM4nB0VLsyXTwJQw+srfAAuGnRbIRFxTjFahVRsNGDJxOrqqWlEV4I9Feop+jJLdQ3r926z/a9/PJ09JWtt7LVQsoyXljUqAPRKsPCFRQjD/GOrtKXQ/fmX50EzNfSqQDrP8uWqEk3UAzdA5nT2hIni6yAmbYRHGAEH7TidY7J2aNe04pGxuegrCDS9bkf6u3o+KHFFtW8UAufkMqYvpjyvJIwx071ieAmOmAX0JwcZsxR8v9HD48kRW+sv6iXAgKjBKJGKr/dsI5cM7mEJU1d/qVjdg4KX5wJnAe8eLG/roW8DYdEGkguCjlLAOXC82MZdRF6RJHTjj8wkL5P/YR+LadVk96GrAtD96h4l6tozhO9eK1dUgqU4SFwuuOYClBKvdLwTSLPXxyHm1EjEjGmiNaQ43inYSIh7KPOKeKDlw5756yY1Li1PUG3tSCClqGFugOldAwx7PlW2N7iJBgM2RS6wkI6BJEJlL/QxwQwlBcK5hLiCA5Rq450TwgNkFkXrgQiwoUT9x1r6NSrFdN2wW1S3Va+qC//WiOe01p8fMt4=
-  on_failure: always
-  on_success: change
+    rooms:
+      secure: HD37dndzhf9YqECoDvQNB+Pgn2UVFerGFW79dEu7CEPGYBCJOqBn9AkLBMa575/rgdHgtXPmebPIJzz0DCSdm3KHRWj9XyRVYYG0u4VsF9ammrv0AwOwJRLPoEdS4ozUrVGXR3acnqCkIDCNXoOVXOqEye6LEduoYAlrYTKWPYWtVhjbNGSmFeOe4dneqO/1Fq+12LsRqmTaRi1tmw1xq5kaKYMC63ZewW655DsXC1ybdTTXL7gMImLLiOYwFYp5+/QK31HdChBV1bpm7SLCMqSVGjKYNINEYxtfWkZ9Rr+651dZ9km2XAzgXt4HDaNi2OoNu+j/UoZKr+IC6ycSLGIhGkfegjGKu6C5NYBYF26Pv3wryGzRc7Rmx5wBAqL1xYygUnYQDYx0zsBYLwkp2CSa2qThCMzDoeRDLc5zSjUiLfWVIszsCMkY8YLN4WUS+dC81k4yMHCjBOyfx8Qs+ohGTeJX2bYcrGnobuPuGpRr2rzlt19QunY2Zpx6U/lS6xoolDlHCTWKaAw4NBDlc1E+OEteCYlOrTqaQyoNV9bsv5xWEJFy62w8afWW9BCbykv2ukQRUAJLuC2eFEzwbLYVCCuTSrxMdDI9P1sXF6KvuQ4ayENkppUTJY5+zRaPowSAXVVElJN0Y3Ur95tjGkyVIXP/7QW/HRrQdPSRQ7c=
+    on_failure: always
+    on_success: change

@@ -5,6 +5,8 @@
 /.idea
 /.vscode
 /.vagrant
+/storage/*.key
+/storage/*.sqlite
 Homestead.json
 Homestead.yaml
 npm-debug.log

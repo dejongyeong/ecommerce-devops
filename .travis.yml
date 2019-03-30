@@ -6,15 +6,17 @@ php:
   - 7.2.10
 
 before_script:
+  - touch database/database.sqlite
+  - touch database/test.sqlite
   - cp .env.travis .env
   - composer self-update
   - composer install --no-interaction
   - npm install
-
-script:
   - php artisan key:generate
   - php artisan passport:install
   - php artisan migrate
+
+script:
   - vendor/bin/phpunit
 
 cache:

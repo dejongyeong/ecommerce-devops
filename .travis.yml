@@ -12,15 +12,15 @@ language: php
 php:
   7.2.10
 
-addons:
-  postgresql: "11.0"
+services:
+  - postgresql
 
 before_script:
   - phpenv config-rm xdebug.ini
   - composer self-update
-  - psql -c 'create database ecommerce-testing;' -U postgres
   - composer install --no-interation
   - npm install
+  - psql -c 'create database ecommerce-testing;' -U postgres
 
 script:
   - php artisan key:generate

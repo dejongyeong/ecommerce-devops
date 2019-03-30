@@ -1,0 +1,29 @@
+# References: https://www.cloudways.com/blog/php-continuous-integration-travis-ci/
+# References: https://docs.travis-ci.com/user/notifications/
+# References: https://gist.github.com/gilbitron/5cac0ac5fa07e9b354ac
+# References: https://docs.travis-ci.com/user/sonarcloud/
+# References: https://medium.com/@felipeluizsoares/automatically-deploy-with-travis-ci-and-heroku-ddba1361647f
+# References: https://mattstauffer.com/blog/laravel-on-heroku-using-a-postgresql-database/
+
+dist: trusty
+
+language: php
+
+php:
+  7.2.10
+
+addons:
+  postgresql: "11.0"
+
+before_script:
+  - phpenv config-rm xdebug.ini
+  - composer self-update
+  - psql -c 'create database ecommerce-testing;' -U postgres
+  - composer install --no-interation
+  - npm install
+
+script:
+  - php artisan key:generate
+  - php artisan passport:install
+  - php artisan migrate --seed --force
+  - vendor/bin/phpunit

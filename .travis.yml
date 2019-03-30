@@ -6,17 +6,20 @@ php:
   - 7.2.10
 
 before_script:
-  - touch database/test.sqlite
   - cp .env.travis .env
   - composer self-update
-  - composer install --prefer-source --no-interaction
+  - composer install --no-interaction
   - npm install
-  - php artisan key:generate
-  - php artisan migrate:refresh --seed --env=testing --force
-  - composer dump-autoload
 
 script:
+  - php artisan key:generate
+  - php artisan passport:install
+  - php artisan migrate
   - vendor/bin/phpunit
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
 
 matrix:
   fast_finish: true

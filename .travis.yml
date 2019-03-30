@@ -5,16 +5,12 @@
 # References: https://medium.com/@felipeluizsoares/automatically-deploy-with-travis-ci-and-heroku-ddba1361647f
 # References: https://mattstauffer.com/blog/laravel-on-heroku-using-a-postgresql-database/
 
+dist: trusty
+
 language: php
 
 php:
-  7.2.10
-
-services:
-  - postgresql
-
-addons:
-  - postgresql: "9.6"
+  - 7.2.10
 
 before_script:
   - phpenv config-rm xdebug.ini

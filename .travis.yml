@@ -17,11 +17,13 @@ before_script:
   - composer self-update
   - composer install --no-interaction
   - npm install
+  - php artisan key:generate
+  - php artisan migrate --force
+  - composer dump-autoload
+  - php artisan db:seed --force
+  - php artisan passport:install
 
 script:
-  - php artisan key:generate
-  - php artisan passport:install
-  - php artisan migrate:refresh --seed --force
   - vendor/bin/phpunit
 
 matrix:

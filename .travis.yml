@@ -18,7 +18,7 @@ addons:
 
 before_script:
   - phpenv config-rm xdebug.ini
-  - cp .env.travis.example .env
+  - cp .env.travis .env
   - composer self-update
   - composer install --no-interaction
   - npm install
@@ -26,5 +26,5 @@ before_script:
 script:
   - php artisan key:generate
   - php artisan passport:install
-  - php artisan migrate --seed --force
+  - php artisan migrate:refresh --seed --force
   - vendor/bin/phpunit

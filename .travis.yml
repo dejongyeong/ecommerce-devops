@@ -32,7 +32,6 @@ deploy:
   provider: heroku
   api_key: 
     secure: o9u+keMikiI1QU17gBXqGtE8/ux9BtACKSiP97rNLbZU5Eb4gR1nbkA8PJfQL8BGIE7kuepNNcIyNUPZrzkTf23sN0qargV0vxXPiTMgtbhrJwDGwkvyldlmCnAbpLJPNKjVwHpFqBG4rS12SAS1jAXMyO2G6rtZSyUYz2iOnTvcQJr1wT34/gfTa4G3EZD9E2CZ362HVoeUry251jPzq6rZ+oaw0QOeJq0QMK+wFr807dX57tlrDTrl4nGBtrT/M1pEqJI4MozBLAgLy1UlUkkT1AdWI4SVfFn1EEI8sIHV7ddoaQqUwLJ4NbQg+1EHY+ZfiRCAJg4l4biZxyJ+tWvd7pGjFpTzoJVizipp5QqRcp1tpY+24t5KBw6smpVaDAKZODj0ewJNw26LyVKMyo5dAAORGK0IC+dhzBhZfsJS7Cz5adHO9FOiRdKpFO4z9Ug+7xzZz+oZasmI/RImZCg6nYJqOMIR18VW5GI5kiLjyXOCZf306KDjtuQeD8unSBU/6yN0VaeZbvf9oM9zPgpEXJF5hlUbfWUfqQ94+nJIYL1aUt99H3L/RyZhydZYq1+j72wqSxnpmJDjDfTOdiK7I/SJ8xIAhXUDdshomRjQ7HLpsixaVLzFOc7LO+us62VNq7dd2bHElHEStZsIDgqPcHKM2ULocXf3aI+wVbY=
-  app:
-    master: ecommerce-devops
+  app: ecommerce-devops
   on:
     repo: dejongyeong/ecommerce-devops

@@ -23,7 +23,7 @@
             }
         },
         mounted(){
-            axios.get('/api/users/')
+            axios.get('/api/users')
             .then(response => {
                 this.users = response.data
             })
@@ -31,7 +31,7 @@
                 console.error(error);
             })
 
-            axios.get('/api/products/')
+            axios.get('/api/products')
             .then(response => {
                 this.products = response.data
             })
@@ -39,7 +39,7 @@
                 console.error(error);
             })
 
-            axios.get('/api/orders/')
+            axios.get('/api/orders')
             .then(response => {
                 this.orders = response.data
             })

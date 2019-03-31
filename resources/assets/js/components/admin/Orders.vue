@@ -34,7 +34,7 @@
             }
         },
         beforeMount(){
-            axios.get('/api/orders/')
+            axios.get('/api/orders')
             .then(response => {
                 this.orders = response.data
             })

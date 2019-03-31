@@ -11,6 +11,11 @@
 |
 */
 
+if (\App::environment('development') || \App::environment('production')) {
+        \URL::forceScheme('https');
+        \URL::forceRootUrl('https://ecommerce-devops.herokuapp.com/');
+}
+
 Route::get('/{any}', function(){
         return view('landing');
 })->where('any', '.*');

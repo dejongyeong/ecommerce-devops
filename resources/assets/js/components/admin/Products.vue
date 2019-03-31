@@ -40,7 +40,7 @@
             Modal
         },
         beforeMount(){
-            axios.get('/api/products/')
+            axios.get('/api/products')
             .then(response => {
                 this.products = response.data
             })
@@ -76,7 +76,7 @@
             },
             addProduct(product){
                 this.addingProduct = null
-                axios.post("/api/products/",{
+                axios.post("/api/products",{
                     name  : product.name,
                     units : product.units,
                     price : product.price,

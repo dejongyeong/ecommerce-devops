@@ -71,7 +71,7 @@
             },
             placeOrder(e) {
                 e.preventDefault()
-                axios.post('api/orders/', {
+                axios.post('api/orders', {
                     address : this.address,
                     quantity: this.quantity,
                     product : this.product.id

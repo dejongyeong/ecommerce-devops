@@ -30,7 +30,7 @@
             }
         },
         beforeMount(){
-            axios.get('/api/users/')
+            axios.get('/api/users')
             .then(response => {
                 this.users = response.data
             })

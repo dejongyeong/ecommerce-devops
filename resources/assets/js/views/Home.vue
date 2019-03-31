@@ -30,7 +30,7 @@
             }
         },
         mounted(){
-            axios.get("api/products/")
+            axios.get("api/products")
             .then(response => {
                 this.products = response.data
             })

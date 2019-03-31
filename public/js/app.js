@@ -121,17 +121,17 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('/api/users/').then(function (response) {
+    axios.get('/api/users').then(function (response) {
       _this.users = response.data;
     }).catch(function (error) {
       console.error(error);
     });
-    axios.get('/api/products/').then(function (response) {
+    axios.get('/api/products').then(function (response) {
       _this.products = response.data;
     }).catch(function (error) {
       console.error(error);
     });
-    axios.get('/api/orders/').then(function (response) {
+    axios.get('/api/orders').then(function (response) {
       _this.orders = response.data;
     }).catch(function (error) {
       console.error(error);
@@ -187,7 +187,7 @@ __webpack_require__.r(__webpack_exports__);
   beforeMount: function beforeMount() {
     var _this = this;
 
-    axios.get('/api/orders/').then(function (response) {
+    axios.get('/api/orders').then(function (response) {
       _this.orders = response.data;
     }).catch(function (error) {
       console.error(error);
@@ -356,7 +356,7 @@ __webpack_require__.r(__webpack_exports__);
   beforeMount: function beforeMount() {
     var _this = this;
 
-    axios.get('/api/products/').then(function (response) {
+    axios.get('/api/products').then(function (response) {
       _this.products = response.data;
     }).catch(function (error) {
       console.error(error);
@@ -390,7 +390,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       this.addingProduct = null;
-      axios.post("/api/products/", {
+      axios.post("/api/products", {
         name: product.name,
         units: product.units,
         price: product.price,
@@ -447,7 +447,7 @@ __webpack_require__.r(__webpack_exports__);
   beforeMount: function beforeMount() {
     var _this = this;
 
-    axios.get('/api/users/').then(function (response) {
+    axios.get('/api/users').then(function (response) {
       _this.users = response.data;
     }).catch(function (error) {
       console.error(error);
@@ -728,7 +728,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       e.preventDefault();
-      axios.post('api/orders/', {
+      axios.post('api/orders', {
         address: this.address,
         quantity: this.quantity,
         product: this.product.id
@@ -814,7 +814,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get("api/products/").then(function (response) {
+    axios.get("api/products").then(function (response) {
       _this.products = response.data;
     }).catch(function (error) {
       console.error(error);

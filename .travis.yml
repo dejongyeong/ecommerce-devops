@@ -9,7 +9,7 @@ before_script:
 - npm install
 - php artisan key:generate
 - php artisan passport:install
-- php artisan migrate --seed --force
+- php artisan migrate:refresh --seed --force
 script:
 - vendor/bin/phpunit
 cache:

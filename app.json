@@ -29,7 +29,7 @@
       "quantity": 1
     }
   },
-  "name": "ecommerce-devops-staging",
+  "name": "ecommerce-devops",
   "scripts": {
   },
   "stack": "heroku-18"

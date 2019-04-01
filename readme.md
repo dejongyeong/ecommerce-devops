@@ -97,3 +97,4 @@ $ composer install
 * SonarCloud Code Quality Analyzer
 * Slack Notifications Integration
 * Heroku Deployment Server
+* Containerize Technology

@@ -7,7 +7,8 @@ RUN docker-php-ext-install pdo
 WORKDIR /app
 COPY . /app
 
-CMD compsoer install --no-interaction
+CMD composer install --no-interaction
+CMD vendor/bin/phpunit
 
 CMD php artisan serve --host=0.0.0.0 --port=8181
 

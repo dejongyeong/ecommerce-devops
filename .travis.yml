@@ -5,10 +5,10 @@ php:
 service:
 - docker
 before_install:
-- docker build -t dejong/ecommerce-devops-image .
+- docker pull dejong/ecommerce-devops-image
 - docker run -d -p 127.0.0.1:80:8181 dejong/ecommerce-devops-image /bin/sh -c "cd /root/ecommerce-devops-image; bundle exec foreman start;"
 - docker ps -a
-- docker run dejong/ecommerce-devops-image /bin/sh -c "cd /root/ecommerce-devops-image; bundle exec /vendor/bin/phpunit"
+- docker run dejong/ecommerce-devops-image /bin/sh -c "cd /root/ecommerce-devops-image; vendor/bin/phpunit"
 # before_script:
 # - cp .env.travis .env
 # - composer self-update

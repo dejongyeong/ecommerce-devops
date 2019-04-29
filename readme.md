@@ -95,7 +95,7 @@ $ composer install
 * PHPUnit
 * GitHub
 * SonarCloud Code Quality Analyzer
-* Slack Notifications Integration
+* Slack Notifications Integration - Travis CI & Google Cloud Build
 * Heroku Deployment Server
 * Containerize Technology - Docker
 * Google Cloud Platform - Cloud Build, Container Register, GKE

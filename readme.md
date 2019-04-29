@@ -98,3 +98,6 @@ $ composer install
 * Slack Notifications Integration
 * Heroku Deployment Server
 * Containerize Technology - Docker
+* Google Cloud Platform - Cloud Build, Container Register, GKE
+* Infrastructure Monitoring - Google StackDriver
+* APplication Monitoring - New Relic APM (Heroku add-ons)

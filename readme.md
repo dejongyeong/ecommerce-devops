@@ -103,4 +103,4 @@ $ composer install
 * Application Monitoring - New Relic APM
 
 ## Wiki
-Documentation: [ecommerce-devops-wiki.pdf](https://github.com/dejongyeong/ecommerce-devops/files/7625853/ecommerce-devops-wiki.pdf)
+Documentation: [ecommerce-devops-wiki.pdf](https://github.com/dejongyeong/ecommerce-devops/files/7625853/ecommerce-devops-wiki.pdf) (also available to view on repository)

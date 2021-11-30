@@ -100,4 +100,7 @@ $ composer install
 * Containerize Technology - Docker
 * Google Cloud Platform - Cloud Build, Container Register, GKE
 * Infrastructure Monitoring - Google StackDriver
-* APplication Monitoring - New Relic APM
+* Application Monitoring - New Relic APM
+
+## Wiki
+Detailed implementation of DevOps is documentated in ```ecommerce-devops-wiki.pdf```
